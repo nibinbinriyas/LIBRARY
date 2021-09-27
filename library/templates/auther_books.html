@@ -1,0 +1,16 @@
+{% extends "basic.html" %}
+
+{% block content %}
+
+<div>
+    <ul>
+        {% for book in book_data %}
+        {% if auther == book.auther %}
+
+        <li>{{book.name}}</li>
+
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

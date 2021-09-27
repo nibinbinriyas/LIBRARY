@@ -1,0 +1,12 @@
+{% extends "basic.html" %}
+
+{% block content %}
+<div>
+    <form method="POST">
+        {{form.hidden_tag()}}
+        {{form.auther.label}}{{form.auther()}}<br>
+        {{form.submit()}}
+    </form>
+</div>
+
+{% endblock %}

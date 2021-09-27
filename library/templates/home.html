@@ -1,0 +1,16 @@
+{% extends "basic.html" %}
+
+{% block content %}
+
+<div style="background-image: url('../static/book.jpeg');">
+    <h1>Welcome to the Books Galary</h1>
+    <h2>Available Books</h2>
+    <ul>
+        {% for book in books %}
+        <li>{{book.name}} : {{book.auther}} - {{book.id}}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}
