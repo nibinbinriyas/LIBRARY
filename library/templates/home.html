@@ -2,12 +2,22 @@
 
 {% block content %}
 
-<div style="background-image: url('../static/book.jpeg');">
+<div class="container">
     <h1>Welcome to the Books Galary</h1>
-    <h2>Available Books</h2>
+    </div>
+ <div class="container">   <h2>Available Books</h2> </div>
+ <div class="container">
     <ul>
         {% for book in books %}
-        <li>{{book.name}} : {{book.auther}} - {{book.id}}</li>
+        <table class="table">
+            <tr>
+                <td>{{book.name}}</td>
+                <td>    :    </td>
+                <td>{{book.auther}}</td>
+            </tr>
+        </table>
+        <!--
+            <li>{{book.name}} : {{book.auther}}</li> -->
         {% endfor %}
     </ul>
 </div>

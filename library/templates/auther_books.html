@@ -2,12 +2,18 @@
 
 {% block content %}
 
-<div>
+<div class="container">
     <ul>
         {% for book in book_data %}
         {% if auther == book.auther %}
 
-        <li>{{book.name}}</li>
+
+        <table class="table">
+            <tr>
+                <td>{{book.name}}</td>
+
+            </tr>
+        </table>
 
         {% endif %}
         {% endfor %}
