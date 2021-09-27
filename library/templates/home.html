@@ -1,24 +1,44 @@
 {% extends "basic.html" %}
 
 {% block content %}
-
+<style>
+  
+</style>
 <div class="container">
     <h1>Welcome to the Books Galary</h1>
     </div>
  <div class="container">   <h2>Available Books</h2> </div>
  <div class="container">
     <ul>
+      
+      <div class="card-deck">
         {% for book in books %}
-        <table class="table">
+
+        
+          
+
+            <div class="card">
+              <img src="../static/book1.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{book.name}}</h5>
+                <p class="card-text">This book is written by famous Auther {{book.auther}}.</p>
+              </div>
+            </div>
+            
+
+          
+    
+<!--
             <tr>
                 <td>{{book.name}}</td>
-                <td>    :    </td>
-                <td>{{book.auther}}</td>
+
+                <td>{{book.auther}}</td><br>
             </tr>
-        </table>
-        <!--
+        
+        
             <li>{{book.name}} : {{book.auther}}</li> -->
         {% endfor %}
+      </div>
     </ul>
 </div>
 

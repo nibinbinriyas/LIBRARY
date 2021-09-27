@@ -1,7 +1,8 @@
 {% extends "basic.html" %}
 
 {% block content %}
-<div>
+<div class="container">
+    <h1>Select an Auther to get his books</h1>
     <form method="POST">
         {{form.hidden_tag()}}
         {{form.auther.label}}{{form.auther()}}<br>

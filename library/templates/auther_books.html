@@ -4,16 +4,23 @@
 
 <div class="container">
     <ul>
+        <h1>Selected Auther's Available Books</h1>
         {% for book in book_data %}
+        
         {% if auther == book.auther %}
+       
+            <div class="card" style="width: 18rem;">
+                <img src="../static/book1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{book.name}}</h5>
+                    <p class="card-text">This a famous book by {{book.auther}}</p>
+                </div>
+                <br>
+            </div>
+  
 
 
-        <table class="table">
-            <tr>
-                <td>{{book.name}}</td>
 
-            </tr>
-        </table>
 
         {% endif %}
         {% endfor %}
