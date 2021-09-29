@@ -6,8 +6,14 @@
     <h1>Enter the id of book</h1>
     <form method="POST">
         {{form.hidden_tag()}}
-        {{form.id.label}}{{form.id()}}
-        {{form.submit()}}
+       <!--{{form.id.label}}{{form.id()}}
+        {{form.submit()}}--> 
+        <div class="form-group">
+            <label >{{form.id.label}}</label>
+            <input type="text" class="form-control"   placeholder="Book ID">
+          </div>
+          
+          <button type="submit" class="btn btn-primary" onclick="{{form.submit()}}">Submit</button>
     </form>
 </div>
 </div>
