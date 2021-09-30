@@ -7,8 +7,12 @@ def test_Book():
     db.session.add(newbook)
     db.session.commit()
 
+
     books = Book.query.all()
     for book in books:
         print(book)
+
+    db.session.delete(newbook)
+    db.session.commit()
 
     assert (1==1)
