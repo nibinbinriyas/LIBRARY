@@ -18,8 +18,9 @@ def add():
     if form.validate_on_submit():
         name = form.name.data
         auther = form.auther.data
+        price = form.price.data
 
-        book_data = Book(name,auther)
+        book_data = Book(name,auther,price)
         db.session.add(book_data)
         db.session.commit()
 
