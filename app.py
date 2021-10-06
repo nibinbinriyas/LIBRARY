@@ -61,29 +61,6 @@ def delete():
     return render_template('delete.html',form=form)
 
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@app.route('/welcome')
-@login_required
-def welcome_user():
-    return render_template("home.html")
-
 @app.route('/logout')
 @login_required
 def logout():
@@ -109,7 +86,7 @@ def login():
             next = request.args.get('next')
 
             if next == None or not next[0] == '/':
-                next = url_for('welcome_user')
+                next = url_for('index')
             return redirect(next)
 
     return render_template('login.html',form=form)
@@ -131,22 +108,6 @@ def register():
         return redirect(url_for('login'))
     
     return render_template('register.html',form=form)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
