@@ -10,7 +10,7 @@
         {% if auther == book.auther %}
        
             <div class="card" style="width: 18rem;">
-                <img src="../static/book1.jpg" class="card-img-top" alt="...">
+                <img src="{{book.image}}" class="card-img-top" alt="readgood" height="250">
                 <div class="card-body">
                     <h5 class="card-title">{{book.name}}</h5>
                     <p class="card-text">This a famous book by {{book.auther}}</p>

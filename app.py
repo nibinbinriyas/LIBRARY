@@ -19,8 +19,9 @@ def add():
         name = form.name.data
         auther = form.auther.data
         price = form.price.data
+        image = form.image.data
 
-        book_data = Book(name,auther,price)
+        book_data = Book(name,auther,price,image)
         db.session.add(book_data)
         db.session.commit()
 
