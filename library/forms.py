@@ -16,6 +16,9 @@ class DelForm(FlaskForm):
     id = IntegerField("Id of the Book    ")
     submit = SubmitField("Buy")
 
+class LoginDirectForm(FlaskForm):
+    submit = SubmitField("Buy")
+
 class SearchForm(FlaskForm):
     auther = StringField("Enter Auther's Name    ")
     submit = SubmitField("Search")

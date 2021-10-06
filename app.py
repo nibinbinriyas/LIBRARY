@@ -2,7 +2,7 @@ import os
 from flask import render_template,redirect,url_for,request,flash
 from library import db,app
 from library.models import Book,User
-from library.forms import AddForm, DelForm, SearchForm,LoginForm,RegistrationForm
+from library.forms import AddForm, DelForm, SearchForm,LoginForm,RegistrationForm,LoginDirectForm
 from flask_login.utils import login_required, login_user, logout_user
 
 
@@ -59,7 +59,17 @@ def delete():
         return redirect(url_for('index'))
 
     return render_template('delete.html',form=form)
+"""
+@app.route('/loginDirect',methods=['GET','POST'])
+def loginDirect():
+    form = LoginDirectForm()
 
+    if form.validate_on_submit():
+
+        return redirect(url_for('login'))
+
+    /*
+"""
 
 @app.route('/logout')
 @login_required
