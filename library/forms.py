@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField,IntegerField,SubmitField,PasswordField
 from wtforms.validators import DataRequired,EqualTo,Email
+from library.models import User
+from wtforms import ValidationError
 
 class AddForm(FlaskForm):
 
@@ -17,6 +19,7 @@ class DelForm(FlaskForm):
 class SearchForm(FlaskForm):
     auther = StringField("Enter Auther's Name    ")
     submit = SubmitField("Search")
+
 
 
 class LoginForm(FlaskForm):

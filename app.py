@@ -79,21 +79,17 @@ def delete():
 
 
 
-@app.route('/')
-def home():
-    return render_template('home.html')
-
 @app.route('/welcome')
 @login_required
 def welcome_user():
-    return render_template("welcome_user.html")
+    return render_template("home.html")
 
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
     flash("You are logged out")
-    return redirect(url_for('home'))
+    return redirect(url_for('index'))
 
 
 

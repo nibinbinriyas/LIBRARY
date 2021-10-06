@@ -28,15 +28,33 @@
                 <a class="nav-link active" aria-current="page" href="{{url_for('index')}}">Home</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="{{url_for('search')}}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('search')}}">Search Auther</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('search')}}">Search Auther</a>
+              </li>
+
+          {% if current_user.is_authenticated %}
+          
+              <li class="nav-item">
                 <a class="nav-link" href="{{url_for('add')}}">Add Book</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{url_for('delete')}}">Buy Book</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url_for('search')}}">Search Auther</a>
-              </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}">Signup</a>
+          </li>
+          {% endif %}
             </ul>
+          
         <!-- <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit" onclick="search()">Search</button>
