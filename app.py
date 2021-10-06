@@ -1,8 +1,12 @@
 import os
-from flask import render_template,redirect,url_for
+from flask import render_template,redirect,url_for,request,flash
 from library import db,app
-from library.models import Book
-from library.forms import AddForm, DelForm, SearchForm
+from library.models import Book,User
+from library.forms import AddForm, DelForm, SearchForm,LoginForm,RegistrationForm
+from flask_login.utils import login_required, login_user, logout_user
+
+
+
 
 @app.route('/')
 def index():
@@ -55,6 +59,9 @@ def delete():
         return redirect(url_for('index'))
 
     return render_template('delete.html',form=form)
+
+
+    
 
 if __name__ == '__main__':
     
