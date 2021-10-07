@@ -6,7 +6,7 @@
     <div padding="100">
         <h1>Login Here...!</h1>
     </div>
-    
+  <!--  
     <form method="POST">
         {{form.hidden_tag()}}
         {{form.email.label}}{{form.email()}}
@@ -16,10 +16,11 @@
 </div>
 
 
-<!--
-<body>
+-->
+  <form method="POST">
     <div class="container">
       <div class="row">
+        {{ form.csrf_token }}
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
           <div class="card border-0 shadow rounded-3 my-5">
             <div class="card-body p-4 p-sm-5">
@@ -27,18 +28,18 @@
               <form>
                 <div class="form-floating mb-3">
                   <input type="email" class="form-control" id="floatingInput" placeholder="Email address">
-                  {{form.email.label}}
+                
                 </div>
                 <div class="form-floating mb-3">
                   <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                  {{form.password.label}}
+                  
                 </div>
   
                 
                 <div class="d-grid">
-                  <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign
+                  <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" >Sign
                     in </button>
-                    {{form.submit()}}
+                    
                 </div>
                 <hr class="my-4">
                 
@@ -48,12 +49,12 @@
         </div>
       </div>
     </div>
--->
+
+  </form>
 
 
 
-
-
+</div>
 
 
 {% endblock %}
