@@ -136,6 +136,7 @@ def login():
         return render_template(url_for('google.login'))
     resp = google.get('/oauth2/v2/userinfo')
     assert resp.ok, resp.text
+    
     return render_template('home.html')
 
 
