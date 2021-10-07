@@ -5,8 +5,16 @@ from library.models import Book,User
 from library.forms import AddForm, DelForm, SearchForm,LoginForm,RegistrationForm,LoginDirectForm
 from flask_login.utils import login_required, login_user, logout_user
 
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
+
+from flask_dance.contrib.google import make_google_blueprint,google
 
 
+blueprint = make_google_blueprint(client_id='590700780001-7st6u7kp3dlrh65i2s088ctie7eh3se3.apps.googleusercontent.com',
+client_secret='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',
+                                    offline=True,scope=['profile','email'])
+app.register_blueprint(blueprint,url_prefix='/login')
 
 @app.route('/')
 def index():
@@ -59,6 +67,7 @@ def delete():
         return redirect(url_for('index'))
 
     return render_template('delete.html',form=form)
+
 """
 @app.route('/loginDirect',methods=['GET','POST'])
 def loginDirect():
@@ -68,7 +77,7 @@ def loginDirect():
 
         return redirect(url_for('login'))
 
-    /*
+   
 """
 
 @app.route('/logout')
@@ -81,7 +90,7 @@ def logout():
 
 
 @app.route('/login',methods=['GET','POST'])
-def login():
+def userlogin():
     
     form = LoginForm()
 
@@ -120,7 +129,18 @@ def register():
     return render_template('register.html',form=form)
 
 
+
+@app.route('/login/google')
+def login():
+    if not google.authorized :
+        return render_template(url_for('google.login'))
+    resp = google.get('/oauth2/v2/userinfo')
+    assert resp.ok, resp.text
+    return render_template('home.html')
+
+
+
 if __name__ == '__main__':
     
-    port = int(os.environ.get('PORT',5000))
-    app.run(debug=True,host='0.0.0.0',port=port)
+    #port = int(os.environ.get('PORT',5000))
+    app.run(debug=True)
